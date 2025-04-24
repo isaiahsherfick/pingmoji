@@ -39,7 +39,7 @@ See the Examples section for how the operations argument works in action.
 
 ** Examples
 #+BEGIN_SRC bash
-pingmoji --emojis 💋🎷🧲🪜🧪🧫🧬 --operations OOXAXOA
+pingmoji --emojis 💋🎷🧲🪜🧪🧫🧬 --operations OOXOXA
 💋 as ipv4 address: 240.159.146.139
         bitwise OR
 🎷 as ipv4 address: 240.159.142.183

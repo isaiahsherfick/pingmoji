@@ -84,12 +84,12 @@ fn main() {
     }
     let data = [1, 2, 3, 4]; // ping data
     let timeout = Duration::from_secs(5);
-    let options = ping_rs::PingOptions {
+    let options = PingOptions {
         ttl: 128,
         dont_fragment: true,
     };
     println!("Pinging {target_addr} with 4 bytes of data...");
-    let result = ping_rs::send_ping(
+    let result = send_ping(
         &target_addr.parse().unwrap(),
         timeout,
         &data,
