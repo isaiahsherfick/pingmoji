@@ -66,6 +66,7 @@ fn main() {
     let ops = validate_ops(cli_args.operations, num_emojis).unwrap();
     let first_emoji = cli_args.emojis.chars().nth(0).unwrap();
     let mut target_addr = get_ipv4_address_from_emoji(&first_emoji.to_string()).unwrap();
+    println!("{} as ipv4 address: {}", first_emoji, target_addr);
     for i in 1..num_emojis {
         let emoji = cli_args.emojis.chars().nth(i).unwrap();
         let op = ops.chars().nth(i - 1).unwrap();
@@ -76,8 +77,8 @@ fn main() {
             'o' | 'O' => "bitwise OR",
             _ => panic!("AAAAAAAAAAAAHHHHHH"),
         };
-        println!("{} as ipv4 address: {}", emoji, addr);
         println!("\t{}", long_op);
+        println!("{} as ipv4 address: {}", emoji, addr);
         target_addr = perform_bitwise_op(&addr, &target_addr, op);
         println!("\t{}", target_addr);
     }

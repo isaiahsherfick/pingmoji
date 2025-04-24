@@ -40,23 +40,24 @@ See the Examples section for how the operations argument works in action.
 ** Examples
 #+BEGIN_SRC bash
 pingmoji --emojis 💋🎷🧲🪜🧪🧫🧬 --operations OOXAXOA
+💋 as ipv4 address: 240.159.146.139
+        bitwise OR
 🎷 as ipv4 address: 240.159.142.183
-        bitwise OR
         240.159.158.191
+        bitwise OR
 🧲 as ipv4 address: 240.159.167.178
-        bitwise OR
         240.159.191.191
+        bitwise XOR
 🪜 as ipv4 address: 240.159.170.156
-        bitwise XOR
         0.0.21.35
-🧪 as ipv4 address: 240.159.167.170
         bitwise OR
+🧪 as ipv4 address: 240.159.167.170
         240.159.183.171
-🧫 as ipv4 address: 240.159.167.171
         bitwise XOR
+🧫 as ipv4 address: 240.159.167.171
         0.0.16.0
-🧬 as ipv4 address: 240.159.167.172
         bitwise AND
+🧬 as ipv4 address: 240.159.167.172
         0.0.0.0
 Pinging 0.0.0.0 with 4 bytes of data...
 Reply from 127.0.0.1: bytes=4 time=0ms TTL=128
