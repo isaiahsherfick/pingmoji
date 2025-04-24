@@ -2,41 +2,6 @@
 -- the most useless yet fun networking tool you've never heard of --
 --------------------------------------------------------------------
 Have you ever wanted to take a series of emojis, parse the first 4 bytes of their unicode data as ipv4 addresses, then chain together a series of logical bitwise operations and ping the result? Too bad! That's all this useless fucking crate can do.
-** About
-*** Why did you do this?
-I don't know dude, I'm sorry.
-*** How can I install it?
-[[https://rustup.rs/][install rustup]] if you don't have it on your system already
-#+BEGIN_SRC bash
-cargo install pingmoji
-#+END_SRC
-
-** Usage
-#+BEGIN_SRC bash
-pingmoji --help
-Usage: pingmoji [OPTIONS] --emojis <EMOJIS>
-
-Options:
-  -e, --emojis <EMOJIS>
-  -o, --operations <OPERATIONS>  [default: ]
-  -h, --help                     Print help
-  -V, --version                  Print version
-#+END_SRC
--e --emojis: string argument with a chain of emojis.
-
-note: some emojis consist of less than 4 bytes of data, the program will panic
-if you provide one in your chain. If you're using this anywhere near production,
-that's on you dog.
-
-technically you can dump other non-emoji unicode characters in here too, as long
-as the character is more than 4 bytes it'll do its thing.
-
--o --operations: string argument representing the chain of bitwise operations to perform with the following constraints:
-- must be equal to the number of emojis minus one
-- only the following letters are permitted (case insensitive): [o,x,a], representing bitwise OR, XOR, and AND, respectively.
-
-See the Examples section for how the operations argument works in action.
-
 ** Examples
 #+BEGIN_SRC bash
 pingmoji --emojis 💋🎷🧲🪜🧪🧫🧬 --operations OOXOXA
@@ -62,3 +27,40 @@ pingmoji --emojis 💋🎷🧲🪜🧪🧫🧬 --operations OOXOXA
 Pinging 0.0.0.0 with 4 bytes of data...
 Reply from 127.0.0.1: bytes=4 time=0ms TTL=128
 #+END_SRC
+** Usage
+#+BEGIN_SRC bash
+pingmoji --help
+Usage: pingmoji [OPTIONS] --emojis <EMOJIS>
+
+Options:
+  -e, --emojis <EMOJIS>
+  -o, --operations <OPERATIONS>  [default: ]
+  -h, --help                     Print help
+  -V, --version                  Print version
+#+END_SRC
+-e --emojis: string argument with a chain of emojis.
+
+note: some emojis consist of less than 4 bytes of data, the program will panic
+if you provide one in your chain. If you're using this anywhere near production,
+that's on you dog.
+
+technically you can dump other non-emoji unicode characters in here too, as long
+as the character is at least 4 bytes it'll do its thing.
+
+-o --operations: string argument representing the chain of bitwise operations to perform with the following constraints:
+- must be equal to the number of emojis minus one
+- only the following letters are permitted (case insensitive): [o,x,a], representing bitwise OR, XOR, and AND, respectively.
+
+See the Examples section for how the operations argument works in action.
+** About
+*** How can I install it?
+[[https://rustup.rs/][install rustup]] if you don't have it on your system already
+#+BEGIN_SRC bash
+cargo install pingmoji
+#+END_SRC
+*** Why did you do this?
+¯\_(ツ)_/¯
+** TODOs / planned features
+- Treat missing bytes in <4 byte characters as 0 octets
+- ipv6 mode??
+- better error handling / more verbose help text
