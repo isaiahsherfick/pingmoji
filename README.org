@@ -1,0 +1,17 @@
+#+title: Readme
+
+* pingmoji
+
+** limitations
+Due to how emojis are encoded and the way this utility extracts IPv4 addresses
+from them, you can only ping ipv4 addresses that begin with the following
+octets:
+
+- 194
+- 226
+- 227
+- 239
+- 240
+- 243
+
+This utility has no practical value, so that's okay.
