@@ -63,7 +63,6 @@ fn validate_ops(ops: String, num_emojis: usize) -> Result<String, PingmojiError>
 fn main() {
     let cli_args = Args::parse();
     let num_emojis = cli_args.emojis.chars().count();
-    println!("num_emojis={num_emojis}");
     let ops = validate_ops(cli_args.operations, num_emojis).unwrap();
     let first_emoji = cli_args.emojis.chars().nth(0).unwrap();
     let mut target_addr = get_ipv4_address_from_emoji(&first_emoji.to_string()).unwrap();
